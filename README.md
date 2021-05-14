@@ -9,10 +9,10 @@ This application creates simple tests to illustrate when common asynchronous ini
 In most test scenarios the aynchronous function does not load until the 3rd invocation.
 
 test1 results:
-![test1 logfiles](./images/test1.png)
+![test1 logfiles](./node-init-tester/images/test1.png)
 
 test2 results:
-![test2 logfiles](./images/test2.png)
+![test2 logfiles](./node-init-tester/images/test2.png)
 
 test2 results:
-![test3 logfiles](./images/test3.png)
+![test3 logfiles](./node-init-tester/images/test3.png)
