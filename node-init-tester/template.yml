@@ -1,0 +1,54 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: >-
+  node-init-tester
+Transform:
+- AWS::Serverless-2016-10-31
+Resources:
+
+  test1:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: src/handlers/test1.handler
+      Runtime: nodejs14.x
+      MemorySize: 128
+      Timeout: 100
+      Description: A Lambda function that a 1 MB file from S3 in the init.
+      Policies:
+        - AWSLambdaBasicExecutionRole
+        - AmazonS3ReadOnlyAccess
+
+  test2:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: src/handlers/test2.handler
+      Runtime: nodejs14.x
+      MemorySize: 128
+      Timeout: 100
+      Description: A Lambda function that gets a parameter from Secret Manager in the init.
+      Policies:
+        - AWSLambdaBasicExecutionRole        
+        - SecretsManagerReadWrite
+
+  test3:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: src/handlers/test3.handler
+      Runtime: nodejs14.x
+      MemorySize: 128
+      Timeout: 100
+      Description: A Lambda function that queries DynamoDB in the init.
+      Policies:
+        - AWSLambdaBasicExecutionRole
+        - AmazonDynamoDBReadOnlyAccess
+
+
+  test4:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: src/handlers/test4.handler
+      Runtime: nodejs14.x
+      MemorySize: 128
+      Timeout: 100
+      Description: A Lambda function that returns a static string.
+      Policies:
+        - AWSLambdaBasicExecutionRole        
