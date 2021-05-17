@@ -3,7 +3,7 @@
  */
 
 // change this variable to adjust sleep duration
-const sleep_duration = 3; // (ms)
+const sleep_duration = 5; // (ms)
 let resolved = false;
 
 function sleep(ms) {
