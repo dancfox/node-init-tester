@@ -41,7 +41,6 @@ Resources:
         - AWSLambdaBasicExecutionRole
         - AmazonDynamoDBReadOnlyAccess
 
-
   test4:
     Type: AWS::Serverless::Function
     Properties:
@@ -49,6 +48,17 @@ Resources:
       Runtime: nodejs14.x
       MemorySize: 128
       Timeout: 100
-      Description: A Lambda function that returns a static string.
+      Description: A Lambda function that calls a sleep function for a specified duration.
       Policies:
         - AWSLambdaBasicExecutionRole        
+
+  testmodule:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: src/handlers/test_module.handler
+      Runtime: nodejs14.x
+      MemorySize: 128
+      Timeout: 100
+      Description: A Lambda function that calls a requests the amazon.com homepage in a module.
+      Policies:
+        - AWSLambdaBasicExecutionRole   
