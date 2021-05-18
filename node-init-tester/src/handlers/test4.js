@@ -13,6 +13,7 @@ console.log("Going to sleep for " + sleep_duration.toString() + " ms");
 sleep(sleep_duration)
 
  exports.handler = async () => {
+    console.log("AWS_LAMBDA_INITIALIZATION_TYPE = " + process.env.AWS_LAMBDA_INITIALIZATION_TYPE);
  
      let message;
      if (resolved == false) {

@@ -58,6 +58,7 @@ client.getSecretValue({SecretId: secretName}, function(err, data) {
 });
 
 exports.handler = async () => {
+    console.log("AWS_LAMBDA_INITIALIZATION_TYPE = " + process.env.AWS_LAMBDA_INITIALIZATION_TYPE);
 
     let message;
 

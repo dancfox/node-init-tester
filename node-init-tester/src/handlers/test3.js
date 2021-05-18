@@ -5,7 +5,7 @@
 let item;
 
 var AWS = require('aws-sdk'); 
-var documentClient = new AWS.DynamoDB.DocumentClient();
+var dynamoDBClient = new AWS.DynamoDB.DocumentClient();
 
 var params = {
     TableName : 'Movies',
@@ -15,13 +15,14 @@ var params = {
     }
 };
   
-documentClient.get(params, function(err, data) {
+dynamoDBClient.get(params, function(err, data) {
     if (err) console.log(err);
     else item = data;
 });
  
  exports.handler = async () => {
- 
+    console.log("AWS_LAMBDA_INITIALIZATION_TYPE = " + process.env.AWS_LAMBDA_INITIALIZATION_TYPE);
+
      let message;
  
      if (item == undefined) {
